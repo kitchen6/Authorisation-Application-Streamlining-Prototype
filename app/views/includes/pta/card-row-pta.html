@@ -1,0 +1,53 @@
+<div class="flex-container govuk-grid-row">
+
+  {{ card.card(
+    cardUrl="/",
+    heading="Sainsbury's",
+    statusClass="status-low",
+    statusMessage="Started 1 May 2016",
+    details = [
+      { class: "govuk-heading-l detail-large", content: "£21,793" },
+      { class: "govuk-heading-s detail", content: "1150L"}
+    ],
+    links = [
+      { link: "/", title: "Manage company car" },
+      { link: "/", title: "Manage medical benefit"}
+    ])
+  }}
+
+
+
+
+
+
+  {{ card.card(
+    cardStyle="inactive",
+    heading="Tax-Free Childcare",
+    statusClass="status-high",
+    statusMessage="Service unavailable",
+    linkContent = "This service is down for scheduled maintenance but it will be back online by 12:00pm on 5 January 2018.",
+    links = [
+      { link: "#", title: "Other ways to use this service" }
+    ])
+  }}
+
+
+
+
+  {{ card.card(
+    cardUrl="/",
+    heading="You paid too much tax last year",
+    statusClass="status-high",
+    statusMessage="You have not claimed your refund",
+    linkContent = "HMRC owes you a £250 refund for the 2016 to 2017 tax year.",
+    links = [
+      { link: "#", title: "Claim your tax refund" },
+      { link: "#", title: "Find out why you paid too much" }
+    ])
+  }}
+
+
+
+
+
+  </div>

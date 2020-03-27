@@ -1,0 +1,351 @@
+
+{% extends "layout.html" %}
+
+<!-- Set heading for the page -->
+<!-- ////////////////////////////////////////////// -->
+{% set pageHeading = "Business Tax Account" %}
+{% set pageSection = "Account home" %}
+
+<!-- Title for browser -->
+<!-- ////////////////////////////////////////////// -->
+{% block pageTitle %}Authorisation Application Streamlining{% endblock %}
+
+<!-- Import the cards template if using the macro -->
+<!-- ////////////////////////////////////////////// -->
+{% import "card-template.html" as card %}
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+            <span class="govuk-caption-xl">Account home</span>
+            <h1 class="govuk-heading-xl">
+                User
+            </h1>
+
+            <!-- ************************************************************************** -->
+            <!-- ************************************************************************** -->
+            <!-- ************************************************************************** -->
+
+            <!-- INCOME -->
+            <h2 class="govuk-heading-m govuk-section-break--m govuk-section-break--visible">Income</h2>
+            <div class="flex-container govuk-grid-row">
+
+                <!-- ************************************************************************** -->
+
+                <!-- PAYE Tile -->
+                {{ card.card(
+                    cardUrl="/check-income-tax/what-do-you-want-to-do",
+                    headingLevel="h3",
+                    heading="Pay As You Earn (PAYE)",
+                    linkContent = "Check or update the employment, pension or other income information used to work out your PAYE Income Tax and tax codes." )
+                }}
+                <!-- End of PAYE Tile -->
+
+                <!-- PAYE TAX OVERPAID -->
+                {% if data['tile--paye--overpaid'] == "active" %}
+
+                    <div class="card ">
+                        <div class="card-body active">
+                            <h3 class="govuk-heading-s card-heading"><a href="../tax-you-paid/2018-2019/paid-too-much">You paid too much tax in the 2018 to 2019 tax year</a></h3>
+                            <!-- HMRC has made the payment -->
+                            {% if data['paye--overpaid-status'] == "paid" %}
+                                <p>HMRC has paid your {{ defaults.payeOverpaidAmount() }} refund.</p>
+                            <!-- Payment is processing from HMRC -->
+                            {% elif data['paye--overpaid-status'] == "processing" %}
+                                <p>HMRC is processing your {{ defaults.payeOverpaidAmount() }} refund.</p>
+                            <!-- Refund still owed -->
+                            {% else %}
+                                <p>HMRC owes you a {{ defaults.payeOverpaidAmount() }} refund.</p>
+                            {% endif %}
+                            <!-- // -->
+                        </div>
+                        <div class="card-action">
+                            <ul class="govuk-list" >
+                                <!-- Refund still owed -->
+                                {% if data['paye--overpaid-status'] == "owe" %}
+                                    <li><a href="../tax-you-paid/2018-2019/paid-too-much">Claim your tax refund</a></li>
+                                {% endif %}
+                                <!-- // -->
+                                <li><a href="../tax-you-paid/2018-2019/paid-too-much/reasons">Find out why you paid too much</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                {% endif %}
+                <!-- // PAYE TAX OVERPAID -->
+
+                <!-- PAYE TAX UNDERPAID -->
+                {% if data['tile--paye--underpaid'] == "active" %}
+
+                    <div class="card ">
+                        <div class="card-body active">
+                            <!-- If deadline has been missed to pay -->
+
+                            {% if data['paye--underpaid-status'] == "paid" %}
+                                <h3 class="govuk-heading-s card-heading"><a href="/tax-you-paid/2018-2019/paid-too-little">You do not owe any more tax in the 2018 to 2019 tax year</a></h3>
+                            {% elif data['paye--underpaid-status'] == "deadline" %}
+                                <h3 class="govuk-heading-s card-heading"><a href="/tax-you-paid/2018-2019/paid-too-little">You missed the deadline to pay your tax in the 2018 to 2019 tax year</a></h3>
+                            <!-- Otherwise deadline to pay not reached -->
+                            {% else %}
+                                <h3 class="govuk-heading-s card-heading"><a href="/tax-you-paid/2018-2019/paid-too-little">You paid too little tax in the 2018 to 2019 tax year</a></h3>
+                            {% endif %}
+                            <!-- // -->
+
+                            <!-- If deadline has been missed to pay -->
+                            {% if data['paye--underpaid-status'] == "paid" %}
+                                <p>You have no payments to make to HMRC.</p>
+                            {% elif data['paye--underpaid-status'] == "deadline" %}
+                                <p>You owe HMRC {{ defaults.payeUnderpaidAmount() }}. You should have paid by 31 January 2019 but you can still make a payment now.</p>
+                            <!-- If deadline to pay is approaching -->
+                            {% elif data['paye--underpaid-status'] == "deadline approaching" %}
+                                <p>You owe HMRC {{ defaults.payeUnderpaidAmount() }}. You must pay by 9 August 2019.</p>
+                            <!-- Deadline not reached -->
+                            {% else %}
+                                <p>You owe HMRC {{ defaults.payeUnderpaidAmount() }}</p>
+                            {% endif %}
+                            <!-- // -->
+                        </div>
+                        <div class="card-action">
+                            <ul class="govuk-list" >
+                                <li><a href="/simple-assessment">Make a payment</a></li>
+                                <!-- If deadline has been missed to pay -->
+                                {% if data['paye--underpaid-status'] != "deadline" %}
+                                    <li><a href="/tax-you-paid/2018-2019/paid-too-little/reasons">Find out why you paid too little</a></li>
+                                {% endif %}
+                                <!-- // -->
+                            </ul>
+                        </div>
+                    </div>
+
+                {% endif %}
+                <!-- // PAYE TAX UNDERPAID -->
+
+                <!-- ************************************************************************** -->
+
+                <!-- SELF ASSESSMENT -->
+                {% if data['tile--self-assessment-complete'] == "active" %}
+
+                    <!-- Self Assessment - Activated -->
+                    {{ card.card(
+                        cardUrl="personal-account/self-assessment-summary",
+                        headingLevel="h3",
+                        heading="Self Assessment",
+                        linkContent = "View and manage your Self Assessment tax return. The deadline for online returns is 31 January 2020.",
+                        links = [
+                          { url: "/self-assessment-file/welcome.html", title: "Complete your tax return" },
+                          { url: "/pay/self-assessment/choose-a-way-to-pay", title: "Make a payment" },
+                          { url: "../check-if-you-need-tax-return", title: "Check if you need to fill in a tax return" }
+                        ])
+                    }}
+
+                <!-- SELF ASSESSMENT - Enrolled -->
+                {% elif data['tile--self-assessment-enrolled'] == "active" %}
+
+                    {{ card.card(
+                        cardUrl="personal-account/sa-continue",
+                        headingLevel="h3",
+                        heading="Self Assessment",
+                        linkContent = "",
+                        links = [
+                          { url: "personal-account/sa-continue", title: "Activate your Self Assessment" }
+
+                        ])
+                    }}
+
+                <!-- SELF ASSESSMENT - Registered -->
+                {% elif data['tile--self-assessment-registered'] == "active" %}
+
+                    {{ card.card(
+                        cardUrl="personal-account/self-assessment",
+                        headingLevel="h3",
+                        heading="Self Assessment",
+                        linkContent = "",
+                        links = [
+                          { url: "personal-account/self-assessment.html", title: "Find out how to access Self Assessment" }
+                        ])
+                    }}
+
+                {% endif %}
+                <!-- // SELF ASSESSMENT -->
+
+                <!-- ************************************************************************** -->
+
+                <!-- NATIONAL INSURANCE -->
+                {{ card.card(
+                    cardUrl="/personal-account/national-insurance-summary",
+                    headingLevel="h3",
+                    heading="National Insurance",
+                    linkContent = "You have a National Insurance number to make sure your National Insurance contributions and tax are recorded against your name only.",
+                    links = [
+                      { url: "/personal-account/national-insurance-summary/print-letter", title: "View your National Insurance letter" },
+                      { url: "/check-your-state-pension/account/nirecord", title: "View gaps in your record" }
+                    ])
+                }}
+                <!-- // NATIONAL INSURANCE -->
+
+                <!-- ************************************************************************** -->
+
+            </div>
+
+            <!-- ************************************************************************** -->
+            <!-- ************************************************************************** -->
+            <!-- ************************************************************************** -->
+
+            <!-- BENEFITS -->
+            <h2 class="govuk-heading-m govuk-section-break--m govuk-section-break--visible">Benefits</h2>
+            <div class="flex-container govuk-grid-row">
+
+                <!-- ************************************************************************** -->
+
+                <!-- TAX CREDITS -->
+                <div class="card ">
+                    <div class="card-body active">
+                        <h3 class="govuk-heading-s card-heading"><a href="lastpage">Tax credits</a></h3>
+                        <p>View your next payments and the people on your claim, and make changes to your claim.</p>
+                    </div>
+                    {% if data['tile--tax-credits'] == "active" %}
+                        <div class="card-action">
+                            <ul class="govuk-list" >
+                                <li><a href="lastpage">View your tax credits payments</a></li>
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+                <!-- // TAX CREDITS -->
+
+                <!-- ************************************************************************** -->
+
+                <!-- CHILD BENEFIT -->
+                {{ card.card(
+                    cardUrl="/personal-account/child-benefit-forms",
+                    headingLevel="h3",
+                    heading="Child Benefit",
+                    linkContent = "A tax-free payment to help parents with the cost of bringing up children.",
+                    links = [
+                        { url: "../forms/form/Tell-Child-Benefit-about-your-child-staying-in-non-advanced-education-or-approved-training/guide", title: "Tell us if your child is staying in full-time education" },
+                        { url: "../digital-forms/form/child-benefit-child-change-of-circumstances/draft/guide", title: "Tell us if your child’s circumstances change" },
+                        { url: "../digital-forms/form/child-benefit-claimant-change-of-circumstances/guide", title: "Tell us if your circumstances change" }
+                    ])
+                }}
+                <!-- // CHILD BENEFIT -->
+
+                <!-- ************************************************************************** -->
+
+                <!-- MARRIAGE ALLOWANCE -->
+                <div class="card ">
+                    <div class="card-body active">
+                        {% if ((data['tile--marriage-allowance-recieves'] == "active" ) or (data['tile--marriage-allowance-transfers'] == "active")) %}
+                            <h3 class="govuk-heading-s card-heading"><a href="/marriage-allowance-application/history">Marriage Allowance</a></h3>
+                        {% else %}
+                            <h3 class="govuk-heading-s card-heading"><a href="/marriage-allowance-application/how-it-works">Marriage Allowance</a></h3>
+                        {% endif %}
+                        {% if data['tile--marriage-allowance-transfers'] == "active" %}
+                            <p>You currently transfer part of your Personal Allowance to your partner.</p>
+                        {% elif data['tile--marriage-allowance-recieves'] == "active" %}
+                            <p>Your partner currently transfers part of their Personal Allowance to you.</p>
+                        {% else %}
+                            <p>Transfer part of your Personal Allowance to your partner so they pay less tax.</p>
+                        {% endif %}
+                    </div>
+                    <div class="card-action">
+                        <ul class="govuk-list" >
+                        {% if ((data['tile--marriage-allowance-recieves'] == "active" ) or (data['tile--marriage-allowance-transfers'] == "active")) %}
+                            <li><a href="/marriage-allowance-application/history">Manage your Marriage Allowance</a></li>
+                        {% else %}
+                            <li><a href="/marriage-allowance-application/how-it-works">Find out if you qualify for Marriage Allowance</a></li>
+                        {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                <!-- // MARRIAGE ALLOWANCE -->
+
+                <!-- ************************************************************************** -->
+
+                <!-- CHILDCARE COSTS -->
+                {% if data['tile--tax-free-childcare'] == "active" %}
+                    {{ card.card(
+                        cardUrl="https://www.gov.uk/get-childcare",
+                        headingLevel="h3",
+                        heading="Help with childcare costs",
+                        linkContent = "You might be able to apply for Tax-Free Childcare or Universal Credit for children under 17. If any of your children are aged 2 to 4 you may also be able to get free or funded hours childcare.",
+                        links = [
+                        ])
+                    }}
+                {% endif %}
+                <!-- // CHILDCARE COSTS -->
+
+                <!-- ************************************************************************** -->
+
+            </div>
+
+            <!-- ************************************************************************** -->
+            <!-- ************************************************************************** -->
+            <!-- ************************************************************************** -->
+
+
+            <!-- PENSIONS -->
+            <h2 class="govuk-heading-m govuk-section-break--m govuk-section-break--visible">Pensions</h2>
+            <div class="flex-container govuk-grid-row">
+
+                <!-- ************************************************************************** -->
+
+                <!-- STATE PENSION -->
+                <div class="card ">
+                    <div class="card-body active">
+                        {% if data['tile--state-pension'] == "active" %}
+                            <h3 class="govuk-heading-s card-heading"><a href="/check-your-state-pension/exclusion">State Pension</a></h3>
+                        {% else %}
+                            <h3 class="govuk-heading-s card-heading"><a href="/check-your-state-pension/account">State Pension</a></h3>
+                        {% endif %}
+                        <p>View your State Pension and National Insurance contributions.</p>
+                    </div>
+                    <div class="card-action">
+                        <ul class="govuk-list" >
+                            <li><a href="/check-your-state-pension/account">View your State Pension forecast</a></li>
+                            <li><a href="/check-your-state-pension/account/nirecord">View your National Insurance record</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- // STATE PENSION -->
+
+                <!-- ************************************************************************** -->
+
+                <!-- LIFETIME ALLOWANCE -->
+                {% if data['tile--lifetime-allowance'] == "active" %}
+
+                    {{ card.card(
+                        cardUrl="/",
+                        headingLevel="h3",
+                        heading="Lifetime allowance protection",
+                        linkContent = "Your lifetime allowance is protected from additional tax charges.",
+                        links = [
+                            { url: "#", title: "Manage your protections" }
+                        ])
+                    }}
+
+                {% endif %}
+                <!-- // LIFETIME ALLOWANCE -->
+
+                <!-- ************************************************************************** -->
+
+            </div>
+            <!-- // End of State Pension rows -->
+
+            <!-- ************************************************************************** -->
+            <!-- ************************************************************************** -->
+            <!-- ************************************************************************** -->
+
+
+        </div>
+        <div class="govuk-grid-column-full">
+
+            {% include "includes/anything-wrong-with-this-page.html" %}
+            {% include "includes/phase-banner.html" %}
+
+        </div>
+    </div>
+
+{% endblock %}

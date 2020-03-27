@@ -1,0 +1,215 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  PTA Cards - GOV.UK
+{% endblock %}
+
+{% import "../../cards/card-template.html" as card %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+			<h1 class="heading-large">PTA address</h1>
+    </div>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+			<p>
+        See the <a href="pta-address-ideas">original ideas for changes</a>.
+      </p>
+
+      <h2 class="heading-large">
+        1. Removing the date content from the first card
+      </h2>
+
+      <h3 class="heading-medium">
+        If there is no postal address
+      </h3>
+    </div>
+  </div>
+
+  <div class="flex-container grid-row">
+
+    <div class="card ">
+      <div class="card-body active">
+        <h3 class="heading-small card-heading"><a href="/">Main address</a></h2>
+          <p>32 Haddricks Mill Road<br />
+          South Gosforth<br />
+          Newcastle upon Tyne<br />
+          NE3 1QL</p>
+      </div>
+      <div class="card-action">
+        <ul>
+          <li><a href="../../../../lastpage">Change your main address</a></li>
+          <li><a href="../../../../lastpage">Change where we send your letters</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h3 class="heading-medium">
+        If there is a postal address
+      </h3>
+    </div>
+  </div>
+
+  <div class="flex-container grid-row">
+
+    <div class="card ">
+      <div class="card-body active">
+        <h3 class="heading-small card-heading"><a href="/">Main address</a></h2>
+          <p>32 Haddricks Mill Road<br />
+          South Gosforth<br />
+          Newcastle upon Tyne<br />
+          NE3 1QL</p>
+      </div>
+      <div class="card-action">
+        <ul>
+          <li><a href="../../../../lastpage">Change your main address</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card ">
+      <div class="card-body active">
+        <h3 class="heading-small card-heading"><a href="/">Postal address</a></h2>
+          <p>59 Thompson Road<br />
+          Southwick<br />
+          Sunderland<br />
+          SR5 2JJ</p>
+      </div>
+      <div class="card-action">
+        <ul>
+          <li><a href="../../../../lastpage">Change your postal address</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h2 class="heading-large">
+        2. Hiding the postal address card
+      </h2>
+
+        <h3 class="heading-medium">
+          If the postal address is one of the Welsh Language Unit addresses
+        </h3>
+    </div>
+  </div>
+
+  <div class="flex-container grid-row">
+
+    <div class="card ">
+      <div class="card-body active">
+        <h3 class="heading-small card-heading"><a href="/">Main address</a></h2>
+          <p>1 Abbey Court<br />
+          Llandudno<br />
+          LL30 2AT</p>
+      </div>
+      <div class="card-action">
+        <ul>
+          <li><a href="../../../../lastpage">Change your main address</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h3 class="heading-medium">
+        If the postal address is not one of the Welsh Language Unit addresses
+      </h3>
+    </div>
+  </div>
+
+  <div class="flex-container grid-row">
+
+    <div class="card ">
+      <div class="card-body active">
+        <h3 class="heading-small card-heading"><a href="/">Main address</a></h2>
+          <p>1 Abbey Court<br />
+          Llandudno<br />
+          LL30 2AT</p>
+      </div>
+      <div class="card-action">
+        <ul>
+          <li><a href="../../../../lastpage">Change your main address</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card ">
+      <div class="card-body active">
+        <h3 class="heading-small card-heading"><a href="/">Postal address</a></h2>
+          <p>12 Colwyn Road<br />
+          Llandudno<br />
+          LL30 3DT</p>
+      </div>
+      <div class="card-action">
+        <ul>
+          <li><a href="../../../../lastpage">Change your postal address</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h2 class="heading-large">
+        3. Change address
+      </h2>
+
+      <p>
+        This is the current journey that exists in the personal tax account.
+      </p>
+
+      <ol class="list list-number">
+        <li>‘Do you get tax credits?’</li>
+        <li>‘Do you live in more than one place?’</li>
+        <li>‘Tell us your main home’ or ‘Find your address’</li>
+        <li>‘Edit your address (optional)’</li>
+        <li>‘When did this become your main home?’ or ‘When did you start living here?’</li>
+        <li>‘Check your details’</li>
+        <li>‘Your address has been changed’</li>
+      </ol>
+
+        <h3 class="heading-medium">
+          3a. Postcode does not change
+        </h3>
+
+        <p>
+          Do not show step 5 and show a slightly different ‘<a href="pta-address-check-your-details">Check your details</a>’ page that:
+        </p>
+
+        <ul class="list list-bullet">
+          <li>displays the address</li>
+          <li>labels the address as ‘Your address’ not ‘Your new address’</li>
+          <li>does not display the ‘When did this become your main home?’ or ‘When did you start living here?’ information</li>
+          <li>sends today’s date to NPS</li>
+        </ul>
+
+        <h3 class="heading-medium">
+          3b. Postcode does change
+        </h3>
+
+        <p>
+          Keep the journey as it is.
+        </p>
+
+    </div>
+  </div>
+
+</main>
+
+{% endblock %}

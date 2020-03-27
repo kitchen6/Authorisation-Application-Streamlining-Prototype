@@ -1,0 +1,94 @@
+This is a page of macros for placeholders for the research.
+
+{# User details #}
+{% macro userTitleName() %}
+Mr
+{% endmacro%}
+
+{% macro userFirstName() %}
+Hugo
+{% endmacro%}
+
+{% macro userMiddleName() %}
+
+{% endmacro%}
+
+{% macro userLastName() %}
+Furst
+{% endmacro%}
+
+{% macro userDOB() %}
+3 May 1980
+{% endmacro%}
+
+{% macro userAge() %}
+39
+{% endmacro%}
+
+{% macro userAddress() %}
+Frosty House<br>2 Castleton Corner<br>Stonedrewbramp<br>LS27 8TA
+{% endmacro%}
+
+
+{% macro userPostalAddress() %}
+Haunted House<br>2 Castleton Corner<br>Stonedrewbramp<br>LS27 8TA
+{% endmacro%}
+
+{% macro userNI() %}
+PB 12 64 56 C
+{% endmacro%}
+
+{% macro userEmailAddress() %}
+email@hmrc.gov.uk
+{% endmacro%}
+
+{% macro userEmailAddressSecure() %}
+e***l@hmrc.gov.uk
+{% endmacro%}
+
+{% macro userUTR() %}
+1097133333
+{% endmacro%}
+
+{% macro userMobile() %}
+*********076
+{% endmacro%}
+
+{% macro userPersonalAllowance() %}
+&pound;11,850
+{% endmacro%}
+
+{% macro userCurrentTaxYear() %}
+6 April 2019 to 5 April 2020
+{% endmacro%}
+
+
+
+
+{# ------------------------------------------- #}
+
+{# Dates #}
+{% macro dateToday() %}
+18 March 2019
+{% endmacro%}
+
+
+{% macro formatDate(date) %}
+{{ date.split and date.split('-').reverse().join('.') or date }}
+{% endmacro %}
+
+
+{% macro saDeadlineYear() %}
+2020
+{% endmacro%}
+
+
+
+{% macro payeOverpaidAmount() %}
+&pound;84.23
+{% endmacro%}
+
+
+{% macro payeUnderpaidAmount() %}
+&pound;1000.00
+{% endmacro%}

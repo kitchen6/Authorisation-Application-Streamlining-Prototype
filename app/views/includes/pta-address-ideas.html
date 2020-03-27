@@ -1,0 +1,307 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  PTA Cards - GOV.UK
+{% endblock %}
+
+{% import "../../cards/card-template.html" as card %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+			<h1 class="heading-large">PTA address</h1>
+    </div>
+  </div>
+
+  <h2 class="heading-medium">
+    Current designs
+  </h2>
+
+  <div class="flex-container grid-row">
+
+    <div class="card ">
+      <div class="card-body active">
+        <h3 class="heading-small card-heading"><a href="/">Main address</a></h2>
+          <p>1 Green Street<br />
+          South Gosforth<br />
+          Newcastle upon Tyne<br />
+          NE6 6VC</p>
+          <p>This has been your main home since 20 July 2017.</p>
+      </div>
+
+      <div class="card-action">
+        <ul>
+          <li><a href="../../../../lastpage">Change your main address</a></li>
+          <li><a href="../../../../lastpage">Change where we send your letters</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card ">
+      <div class="card-body active">
+        <h3 class="heading-small card-heading"><a href="/">Main address</a></h2>
+          <p>1 Green Street<br />
+          South Gosforth<br />
+          Newcastle upon Tyne<br />
+          NE6 6VC</p>
+          <p>This has been your main home since 20 July 2017.</p>
+      </div>
+
+      <div class="card-action">
+        <ul>
+          <li><a href="../../../../lastpage">Change your main address</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="flex-container grid-row">
+
+    <div class="card ">
+      <div class="card-body active">
+        <h3 class="heading-small card-heading"><a href="/">Postal address</a></h2>
+          <p>1 White Street<br />
+          Jesmond<br />
+          Newcastle upon Tyne<br />
+          NE5 5XZ</p>
+          <p>All your letters will be sent to this address.</p>
+      </div>
+
+      <div class="card-action">
+        <ul>
+          <li><a href="../../../../lastpage">Change your postal address</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card ">
+      <div class="card-body active">
+        <h3 class="heading-small card-heading"><a href="/">Postal address</a></h2>
+          <p>1 White Street<br />
+          Jesmond<br />
+          Newcastle upon Tyne<br />
+          NE5 5XZ</p>
+          <p>All your letters will be sent to this address.</p>
+      </div>
+
+      <div class="card-action">
+        <ul>
+          <li>You can only change this address once a day. Please try again tomorrow.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card ">
+      <div class="card-body active">
+        <h3 class="heading-small card-heading"><a href="/">Postal address</a></h2>
+          <p>Spur C<br/>
+            Tŷ Glas Buildings<br/>
+            Llanishen<br/>
+            Cardiff<br/>
+            CF14 5TS</p>
+          <p>All your letters will be sent to this address.</p>
+      </div>
+
+      <div class="card-action">
+        <ul>
+          <li><a href="../../../../lastpage">Change your postal address</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="heading-medium">
+    Idea 1: hide the Welsh Language Unit postal address
+  </h2>
+
+  <p class="text">People who have asked for letters in Welsh get this as their postal address.</p>
+
+  <p class="text">Use the same logic for sifting letters to hide the postal address so main address displays as if there is only one address. This is something that could be done in the frontend without changing the backend.</p>
+
+  <p class="text">This will stop people changing the address and being sent English letters.</p>
+
+  <h2 class="heading-medium">
+    Idea 2: delete the date information
+  </h2>
+
+  <p class="text">This would only be temporary until any longer-term fixes are available. The address being correct is the most important user need.</p>
+
+  <div class="flex-container grid-row">
+
+    <div class="card ">
+      <div class="card-body active">
+        <h3 class="heading-small card-heading"><a href="/">Main address</a></h2>
+          <p>1 Green Street<br />
+          South Gosforth<br />
+          Newcastle upon Tyne<br />
+          NE6 6VC</p>
+      </div>
+      <div class="card-action">
+        <ul>
+          <li><a href="../../../../lastpage">Change your main address</a></li>
+          <li><a href="../../../../lastpage">Change where we send your letters</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="heading-medium">
+    Idea 3: only show date if address is in Scotland
+  </h2>
+
+  <p class="text">This will reduce how many people may see an incorrect date and fail to change it online.</p>
+
+  <div class="flex-container grid-row">
+
+    <div class="card ">
+      <div class="card-body active">
+        <h2 class="heading-small card-heading"><a href="/">Main address</a></h2>
+          <p>1 Princes Street<br />
+          Edinburgh<br />
+          EH2 2AN</p>
+          <p>This has been your main home since 20 July 2017.</p>
+      </div>
+      <div class="card-action">
+        <ul>
+          <li><a href="../../../../lastpage">Change your main address</a></li>
+          <li><a href="../../../../lastpage">Change where we send your letters</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="heading-medium">
+    Idea 4: change the date content in the main address card
+  </h2>
+
+  <p class="text">This will give people more clarity on where the date comes from. At the moment it implies a moving date.</p>
+
+  <div class="flex-container grid-row">
+
+    <div class="card ">
+      <div class="card-body active">
+        <h2 class="heading-small card-heading"><a href="/">Main address</a></h2>
+          <p>1 Green Street<br />
+          South Gosforth<br />
+          Newcastle upon Tyne<br />
+          NE6 6VC</p>
+          <p>Our records show this has been your main address since 20&nbsp;July&nbsp;2017.</p>
+      </div>
+      <div class="card-action">
+        <ul>
+          <li><a href="../../../../lastpage">Change your main address</a></li>
+          <li><a href="../../../../lastpage">Change where we send your letters</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card ">
+      <div class="card-body active">
+        <h2 class="heading-small card-heading"><a href="/">Main address</a></h2>
+          <p>1 Green Street<br />
+          South Gosforth<br />
+          Newcastle upon Tyne<br />
+          NE6 6VC</p>
+          <p>Our records show this has been your main address since at least 20&nbsp;July&nbsp;2017.</p>
+      </div>
+      <div class="card-action">
+        <ul>
+          <li><a href="../../../../lastpage">Change your main address</a></li>
+          <li><a href="../../../../lastpage">Change where we send your letters</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="heading-medium">
+    Idea 5: add a link to change the date
+  </h2>
+
+  <p class="text">This will complement idea 4 and let people quickly get to the right place. Rather than try and change their address and be told to do it offline.</p>
+
+  <p class="text">When someone is told to do it offline, we direct them to <a href="https://www.gov.uk/government/organisations/hm-revenue-customs/contact/change-your-personal-details">Change your address and personal details</a>. This page could confuse people because it starts with a link that sends them back to where they were and has 5 sets of contact information.</p>
+
+  <p class="text">We could create a page inside of personal tax account that includes the information from under the Income Tax contact details. This will be a better journey and meet the user need faster.</p>
+
+  <div class="flex-container grid-row">
+
+    <div class="card ">
+      <div class="card-body active">
+        <h2 class="heading-small card-heading"><a href="/">Main address</a></h2>
+          <p>1 Green Street<br />
+          South Gosforth<br />
+          Newcastle upon Tyne<br />
+          NE6 6VC</p>
+          <p>Our records show this has been your main address since at least 20 July 2017.</p>
+      </div>
+      <div class="card-action">
+        <ul>
+          <li><a href="https://www.gov.uk/government/organisations/hm-revenue-customs/contact/change-your-personal-details">Contact HMRC if this was your main address before 20&nbsp;July&nbsp;2017</a></li>
+          <li><a href="../../../../lastpage">Change your main address</a></li>
+          <li><a href="../../../../lastpage">Change where we send your letters</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="heading-medium">
+    Idea 6: change the order of screens in the change your address journey
+  </h2>
+
+  <p class="text">The current order is:</p>
+
+  <ul class="list list-bullet">
+    <li>Do you get tax credits?</li>
+    <li>Do you live in more than one place?</li>
+    <li>Find your address</li>
+    <li>Edit your address (optional)</li>
+    <li>When did you start living here?</li>
+    <li>You cannot use this service to update your address</li>
+  </ul>
+
+  <p class="text">This is 6 steps to find out that you cannot do it. If the first or second question is something like ‘When did you change address?’ you could get people to where they need to go faster.</p>
+
+  <h2 class="heading-medium">
+    Idea 7: let people tell us an earlier date online
+  </h2>
+
+  <p class="text">It would be good if this could happen in real time but, if not, send the change to a digital mail queue. Tell them it will take a few days to update instead of sending someone to the helpline.</p>
+
+  <h2 class="heading-medium">
+    Idea 8: remove hover on main address and postal address cards
+  </h2>
+
+  <p class="text">The links on the cards is the same as the first link under the cards. This makes the screen less accessible. It is not clear what selecting the card will do. It could tell you more information about your address.</p>
+
+  <div class="flex-container grid-row">
+
+    <div class="card ">
+      <div class="card-body">
+        <h2 class="heading-small card-heading">Main address</h2>
+          <p>1 Grebe Street<br />
+          South Gosforth<br />
+          Newcastle upon Tyne<br />
+          NE6 6VC</p>
+          <p>Our records show this has been your main address since at least 20 July 2017.</p>
+      </div>
+      <div class="card-action">
+        <ul>
+          <li><a href="link to screen in PTA with contact details">Contact HMRC if this became your main address before 20&nbsp;July&nbsp;2017</a></li>
+          <li><a href="../../../../lastpage">Change your main address</a></li>
+          <li><a href="../../../../lastpage">Change where we send your letters</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+{% endblock %}

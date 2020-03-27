@@ -1,0 +1,8 @@
+{% macro pageHeader (
+    heading = "",
+    section = "",
+    data = {}
+) %}
+    {% if section %}<span class="govuk-caption-l"><span class="visuallyhidden">This section is: </span>{{ section }}</span>{% endif %}
+    <h1 class="govuk-heading-l">{{ heading }}</h1>
+{% endmacro %}

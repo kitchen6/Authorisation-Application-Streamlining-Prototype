@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  PTA Cards - GOV.UK
+{% endblock %}
+
+{% import "../../cards/card-template.html" as card %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a href="../../../../lastpage" class="link-back">Back</a>
+			<h1 class="heading-xlarge">Check your details</h1>
+
+      <div style="height:100px;border-bottom:1px solid #bfc1c3" class="form-group">
+        <div class="column-one-third" style="font-weight:bold;padding-left:0px;padding-right:0px">
+          Your address
+        </div>
+        <div class="column-one-third" style="padding-left:0px;padding-right:0px">
+          1 Smith Street,<br/>
+          Gateshead,<br/>
+          NE10 0XT
+        </div>
+        <div class="column-one-third" style="padding-left:0px;padding-right:0px">
+          <a href="/personal-account/your-address/sole/edit-address" style="float:right;">Change address</a>
+        </div>
+      </div>
+
+    <button role="button" class="button" type="submit">Confirm and save</button>
+
+    </div>
+
+  </div>
+</main>
+
+{% endblock %}

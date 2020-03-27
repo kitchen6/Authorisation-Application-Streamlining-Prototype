@@ -1,0 +1,48 @@
+<div class="flex-container govuk-grid-row">
+
+  {{ card.card(
+    cardUrl="/check-income-tax-prototype/iterations/sprint-84/dashboard/pre-start_v7",
+    headingLevel="h3",
+    heading="Pay As You Earn (PAYE)",
+    linkContent = "Your income from employers and private pensions that is taxed before it is paid to you.",
+    links = [
+      { link: "/check-income-tax-prototype/check-income-tax/sprint78/v3-3/check-details-start", title: "View your Income Tax estimate" },
+      { link: "check-income-tax-prototype/check-income-tax/sprint78/v3-3/cy-1-income", title: "Check how much tax you paid last year" },
+      { link: "check-income-tax-prototype/check-income-tax/sprint78/v3-3/cy-1-income", title: "Understand your tax code" }
+    ])
+  }}
+
+  {{ card.card(
+    cardUrl="/",
+    headingLevel="h3",
+    heading="You paid too much tax last year",
+    linkContent = "HMRC owes you a £84.23 refund for the 2017 to 2018 tax year.",
+    links = [
+      { link: "/repayments-prototype/version8-2/choose-account", title: "Claim your tax refund" },
+      { link: "/repayments-prototype/version8-2/overpayment-reason-new", title: "Find out why you paid too much" }
+    ])
+  }}
+
+  {{ card.card(
+    cardUrl="/",
+    headingLevel="h3",
+    heading="National Insurance",
+    linkContent = "You have a National Insurance number to make sure your National Insurance contributions and tax are recorded against your name only.",
+    links = [
+      { link: "#", title: "Print your National Insurance number" },
+      { link: "#", title: "View your National Insurance letter" },
+      { link: "#", title: "View gaps in your record" }
+    ])
+  }}
+
+  {{ card.card(
+    cardUrl="/",
+    headingLevel="h3",
+    heading="Self Assessment",
+    linkContent = "",
+    links = [
+      { link: "#", title: "Find out how to access Self Assessment" }
+    ])
+  }}
+
+  </div>
